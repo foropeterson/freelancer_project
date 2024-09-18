@@ -3,30 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Greatstack - A leading UI/UX design company with 10+ years of experience.">
+    <meta name="keywords" content="UI/UX Design, Web Design, Greatstack">
+    
     <title>Greatstack</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav>
-    <img src="logo.png" alt="" class="logo">
-    <ul>
-        <li>home</li>
-        <li>services</li>
-        <li>projects</li>
-        <li>about us</li>
+    <img src="logo.png" alt="Greatstack Logo" class="logo">
+    <ul id="menu-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about-us">About Us</a></li>
     </ul>
-    <button class="nav-btn">gets tarted <img src="arrow-white.png" alt=""></button>
+    <button class="nav-btn" aria-label="Get Started">Get Started <img src="arrow-white.png" alt="Arrow Icon"></button>
+    <img src="menu.png" alt="Menu Icon" class="menu-icon" onclick="toggleMenu()">
   </nav>  
-  <div class="header">
-    <h1>FREE <br>LANCER</h1>
+  <header class="header">
+  <div class="header-content"> <h1><span>FREE</span> <br><span>LANCER</span></h1>
     <div class="btn-container">
-        <button class="btn-dark">request call back <img src="phone.png" alt=""></button>
-         <button class="btn-light">know more <img src="arrow-black.png" alt=""></button>
+        <button class="btn-dark" aria-label="Request Call Back">Request Call Back <img src="phone.png" alt="Phone Icon"></button>
+        <button class="btn-light" aria-label="Know More">Know More <img src="arrow-black.png" alt="Arrow Icon"></button>
     </div>
-    <p>passionate in UI/UX designers  with 10+ years of experience</p>
-  </div>
+    <p>Passionate UI/UX designers with 10+ years of experience</p></div>
+
+   
+    <img src="user.png" alt="User Image" class="user-img">
+  </header>
+  <script>
+    let navbar = document.querySelector('nav');
+
+function toggleMenu() {
+    let menuLinks = document.getElementById("menu-links");
+    let menuIcon = document.querySelector('.menu-icon');
+    menuLinks.classList.toggle('show-menu');
+    menuIcon.setAttribute('aria-expanded', menuLinks.classList.contains('show-menu'));
+}
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        navbar.style.background = '#eefff9';
+    } else {
+        navbar.style.background = 'transparent';
+    }
+});
+document.querySelector('form').addEventListener('submit', function(e) {
+    let isValid = true;
+    // Add validation logic here
+    if (!isValid) {
+        e.preventDefault();
+        alert('Please fill out all required fields.');
+    }
+});
+
+
+  </script>
 </body>
 </html>
